@@ -155,7 +155,8 @@ import '@testing-library/jest-dom'
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "jest": "jest --watch"
+    "jest": "jest",
+    "jest:watch":"jest --watch"
   }
 }
 ```

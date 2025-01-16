@@ -24,6 +24,13 @@ const Calculator = () => {
     setNewNumber(true);
   };
 
+  const handleClear = () => {
+    setDisplay("0");
+    setFirstNumber(null);
+    setOperation(null);
+    setNewNumber(true);
+  };
+
   const calculateResult = () => {
     if (firstNumber === null || operation === null) return;
 
@@ -61,6 +68,12 @@ const Calculator = () => {
         {display}
       </div>
       <div className="grid grid-cols-4 gap-2 w-full">
+        <button
+          onClick={handleClear}
+          className="p-4 bg-red-500 text-white rounded hover:bg-red-600 transition-colors"
+        >
+          C
+        </button>
         {[7, 8, 9, 4, 5, 6, 1, 2, 3, 0].map((number) => (
           <button
             key={number}
