@@ -29,4 +29,36 @@ describe("Calculator", () => {
     // Check if display shows clicked numbers
     expect(screen.getByTestId("calculator-display")).toHaveTextContent("123");
   });
+  it("performs addition correctly", () => {
+    render(<Calculator />);
+
+    fireEvent.click(screen.getByRole("button", { name: "2" }));
+    fireEvent.click(screen.getByRole("button", { name: "+" }));
+    fireEvent.click(screen.getByRole("button", { name: "3" }));
+    fireEvent.click(screen.getByRole("button", { name: "=" }));
+
+    expect(screen.getByTestId("calculator-display")).toHaveTextContent("5");
+  });
+
+  it("performs subtraction correctly", () => {
+    render(<Calculator />);
+
+    fireEvent.click(screen.getByRole("button", { name: "5" }));
+    fireEvent.click(screen.getByRole("button", { name: "-" }));
+    fireEvent.click(screen.getByRole("button", { name: "3" }));
+    fireEvent.click(screen.getByRole("button", { name: "=" }));
+
+    expect(screen.getByTestId("calculator-display")).toHaveTextContent("2");
+  });
+
+  it("performs multiplication correctly", () => {
+    render(<Calculator />);
+
+    fireEvent.click(screen.getByRole("button", { name: "4" }));
+    fireEvent.click(screen.getByRole("button", { name: "×" }));
+    fireEvent.click(screen.getByRole("button", { name: "3" }));
+    fireEvent.click(screen.getByRole("button", { name: "=" }));
+
+    expect(screen.getByTestId("calculator-display")).toHaveTextContent("12");
+  });
 });
