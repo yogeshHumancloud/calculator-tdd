@@ -1,5 +1,6 @@
 // __tests__/Calculator.test.tsx
 import { render, screen, fireEvent } from "@testing-library/react";
+import "@testing-library/jest-dom";
 import Calculator from "@/components/Calculator";
 
 describe("Calculator", () => {
