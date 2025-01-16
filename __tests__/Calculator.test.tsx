@@ -61,4 +61,20 @@ describe("Calculator", () => {
 
     expect(screen.getByTestId("calculator-display")).toHaveTextContent("12");
   });
+  it("clears the display when C button is clicked", () => {
+    render(<Calculator />);
+
+    // First enter some numbers
+    fireEvent.click(screen.getByRole("button", { name: "5" }));
+    fireEvent.click(screen.getByRole("button", { name: "7" }));
+
+    // Verify numbers are displayed
+    expect(screen.getByTestId("calculator-display")).toHaveTextContent("57");
+
+    // Click clear button
+    fireEvent.click(screen.getByRole("button", { name: "C" }));
+
+    // Verify display is reset to 0
+    expect(screen.getByTestId("calculator-display")).toHaveTextContent("0");
+  });
 });
